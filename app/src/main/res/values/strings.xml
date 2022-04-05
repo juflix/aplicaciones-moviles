@@ -2,4 +2,11 @@
     <string name="app_name">Cards</string>
     <string name="answer_button_text">Check answer</string>
     <string name="question_text">Tree</string>
+    <string name="answer_text">Árbol</string>
+    <string name="check_answer">Check Answer</string>
+
+    <string name="easy_button_title">Easy</string>
+    <string name="doubt_button_title">Doubt</string>
+    <string name="difficult_button_title">Hard</string>
+
 </resources>

@@ -2,5 +2,12 @@
 <resources>
     <string name="app_name">Tarjetas</string>
     <string name="answer_button_text">Ver respuesta</string>
-    <string name="question_text">Arbol</string>
+    <string name="question_text">Árbol</string>
+    <string name="answer_text">Tree</string>
+    <string name="check_answer">Ver Respuesta</string>
+
+    <string name="easy_button_title">Facil</string>
+    <string name="doubt_button_title">Dudo</string>
+    <string name="difficult_button_title">Dificil</string>
+
 </resources>
