@@ -1,0 +1,5 @@
+<resources>
+    <string name="app_name">Cards</string>
+    <string name="answer_button_text">Check answer</string>
+    <string name="question_text">Tree</string>
+</resources>
