@@ -11,6 +11,7 @@ import java.util.*
 
 class MainActivity : AppCompatActivity() {
     lateinit var binding: ActivityMainBinding
+
     var card = Card("Tree", "Árbol")
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -24,6 +25,10 @@ class MainActivity : AppCompatActivity() {
             }
         }
         Timber.i("onCreate called")
+        Timber.i("answered = ${savedInstanceState?.getBoolean(Companion.ANSWERED_KEY)}")
+
+        // card.answered = savedInstanceState?.getBoolean(ANSWERED_KEY) ?: false
+        // binding.invalidateAll()
     }
 
     override fun onStart(){
@@ -34,6 +39,7 @@ class MainActivity : AppCompatActivity() {
     override fun onResume() {
         super.onResume()
         Timber.i("onResume called")
+        binding.invalidateAll()
     }
 
     override fun onPause() {
@@ -50,5 +56,23 @@ class MainActivity : AppCompatActivity() {
         super.onDestroy()
         Timber.i("onDestroy called")
     }
+
+    override fun onSaveInstanceState(outState: Bundle) {
+        super.onSaveInstanceState(outState)
+        Timber.i("onSaveInstanceState called")
+        outState.putBoolean(Companion.ANSWERED_KEY, card.answered)
+    }
+
+    override fun onRestoreInstanceState(savedInstanceState: Bundle) {
+        super.onRestoreInstanceState(savedInstanceState)
+        Timber.i("onRestoreInstanceState called")
+        card.answered = savedInstanceState?.getBoolean(ANSWERED_KEY) ?: false
+
+    }
+
+    companion object {
+        private const val ANSWERED_KEY = "com.example.cards:answered"
+    }
+
 }
 
