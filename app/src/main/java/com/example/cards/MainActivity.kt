@@ -2,20 +2,16 @@ package com.example.cards
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.view.View
-import android.widget.Button
-import android.widget.LinearLayout
-import android.widget.TextView
 import android.widget.Toast
 import androidx.databinding.DataBindingUtil
 import com.example.cards.databinding.ActivityMainBinding
 import com.google.android.material.snackbar.Snackbar
-import java.time.LocalDateTime
+import timber.log.Timber
 import java.util.*
 
 class MainActivity : AppCompatActivity() {
-    private lateinit var binding: ActivityMainBinding
-    private var card = Card("Tree", "Árbol")
+    lateinit var binding: ActivityMainBinding
+    var card = Card("Tree", "Árbol")
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -27,5 +23,32 @@ class MainActivity : AppCompatActivity() {
                 invalidateAll()
             }
         }
+        Timber.i("onCreate called")
+    }
+
+    override fun onStart(){
+        super.onStart()
+        Timber.i("onStart called")
+    }
+
+    override fun onResume() {
+        super.onResume()
+        Timber.i("onResume called")
+    }
+
+    override fun onPause() {
+        super.onPause()
+        Timber.i("onPause called")
+    }
+
+    override fun onStop() {
+        super.onStop()
+        Timber.i("onStop called")
+    }
+
+    override fun onDestroy() {
+        super.onDestroy()
+        Timber.i("onDestroy called")
     }
 }
+
