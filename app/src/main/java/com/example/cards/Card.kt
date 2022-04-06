@@ -1,5 +1,6 @@
 package com.example.cards
 
+import android.view.View
 import java.lang.Double.max
 import java.time.LocalDateTime
 import java.time.format.DateTimeFormatter
@@ -83,6 +84,21 @@ open class Card(
             now = now.plusDays(1)
         }
     }
+
+    fun update_from_view(view: View) {
+        quality = when(view.id) {
+            R.id.easy_button -> 5
+            R.id.doubt_button -> 3
+            R.id.hard_button -> 0
+            else -> throw Exception("Unavailable quality")
+        }
+        update(LocalDateTime.now())
+    }
+    fun update_card(quality: Int) {
+        this.quality = quality
+        update(LocalDateTime.now())
+    }
+
 }
 
 /*

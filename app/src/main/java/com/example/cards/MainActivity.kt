@@ -21,26 +21,10 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         binding = DataBindingUtil.setContentView(this, R.layout.activity_main)
         binding.card = card
-
         binding.apply {
             answerButton.setOnClickListener {
                 card?.answered = true
                 invalidateAll()
-            }
-            easyButton.setOnClickListener {
-                card?.quality = 5
-                card?.update(LocalDateTime.now())
-                Toast.makeText(this@MainActivity, String.format("%.1f", card?.easiness), Toast.LENGTH_SHORT).show()
-            }
-            doubtButton.setOnClickListener {
-                card?.quality = 3
-                card?.update(LocalDateTime.now())
-                Toast.makeText(this@MainActivity, String.format("%.1f", card?.easiness), Toast.LENGTH_SHORT).show()
-            }
-            hardButton.setOnClickListener {
-                card?.quality = 0
-                card?.update(LocalDateTime.now())
-                Toast.makeText(this@MainActivity, String.format("%.1f", card?.easiness), Toast.LENGTH_SHORT).show()
             }
         }
     }
