@@ -17,9 +17,10 @@ open class Card(
 
     var creationDate: String = LocalDateTime.now().toString(),
     var nextPracticeDate: String = LocalDateTime.now().toString(),
-    var id: String = UUID.randomUUID().toString()
-) {
+    var id: String = UUID.randomUUID().toString(),
 
+    var answered: Boolean = false
+) {
     override fun toString(): String = run {
         return ("card | $question | $answer | $creationDate | $easiness | $interval | $repetitions | $nextPracticeDate")
     }

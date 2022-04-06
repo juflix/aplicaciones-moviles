@@ -7,6 +7,6 @@
 
     <string name="easy_button_title">Easy</string>
     <string name="doubt_button_title">Doubt</string>
-    <string name="difficult_button_title">Hard</string>
+    <string name="hard_button_title">Hard</string>
 
 </resources>
