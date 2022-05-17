@@ -13,9 +13,11 @@ import java.util.*
 
 class MainActivity : AppCompatActivity() {
     lateinit var binding: ActivityMainBinding
+
     private val viewModel: MainViewModel by lazy {
         ViewModelProvider(this).get(MainViewModel::class.java)
     }
+
     private var listener = View.OnClickListener { v ->
         val quality = when (v?.id) {
             R.id.hard_button -> 0

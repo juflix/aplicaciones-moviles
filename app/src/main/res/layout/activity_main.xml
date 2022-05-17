@@ -13,7 +13,8 @@
 
     <RelativeLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        android:layout_height="match_parent"
+        android:visibility="@{viewModel.card == null ? View.INVISIBLE : View.VISIBLE}">
 
         <TextView
             android:id="@+id/question_text_view"
