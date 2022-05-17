@@ -7,13 +7,14 @@
     <data>
         <import type="android.view.View"/>
         <variable
-            name="card"
-            type="com.example.cards.Card" />
+            name="viewModel"
+            type="com.example.cards.MainViewModel" />
     </data>
 
     <RelativeLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        android:layout_height="match_parent"
+        >
 
         <TextView
             android:id="@+id/question_text_view"
@@ -21,7 +22,7 @@
             android:layout_height="wrap_content"
             android:layout_centerInParent="true"
             android:textSize="20dp"
-            android:text="@{card.question}"
+            android:text="@{viewModel.card.question}"
             tools:text="Text of the question"/>
 
         <View
@@ -31,7 +32,7 @@
             android:layout_marginVertical="10dp"
             android:layout_marginHorizontal="30dp"
             android:layout_height="1dp"
-            android:visibility="@{card.answered ? View.VISIBLE : View.INVISIBLE}"
+            android:visibility="@{viewModel.card.answered ? View.VISIBLE : View.INVISIBLE}"
             android:background="@android:color/darker_gray"/>
 
         <TextView
@@ -41,8 +42,8 @@
             android:layout_centerInParent="true"
             android:layout_below="@id/separator_view"
             android:textSize="20dp"
-            android:visibility="@{card.answered ? View.VISIBLE : View.INVISIBLE}"
-            android:text="@{card.answer}"
+            android:visibility="@{viewModel.card.answered ? View.VISIBLE : View.INVISIBLE}"
+            android:text="@{viewModel.card.answer}"
             tools:text="Text of the answer"/>
 
         <Button
@@ -50,7 +51,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_below="@id/answer_text_view"
-            android:visibility="@{card.answered ? View.INVISIBLE : View.VISIBLE}"
+            android:visibility="@{viewModel.card.answered ? View.INVISIBLE : View.VISIBLE}"
             android:text="@string/check_answer"/>
 
         <LinearLayout
@@ -59,7 +60,7 @@
             android:layout_height="wrap_content"
             android:layout_alignParentBottom="true"
             android:gravity="center"
-            android:visibility="@{card.answered ? View.VISIBLE : View.INVISIBLE}"
+            android:visibility="@{viewModel.card.answered ? View.VISIBLE : View.INVISIBLE}"
             >
 
             <Button
@@ -68,7 +69,7 @@
                 android:layout_height="wrap_content"
                 android:backgroundTint="@android:color/holo_red_light"
                 android:text="@string/hard_button_title"
-                android:onClick="@{() -> card.update_card(0)}">
+                android:onClick="@{() -> viewModel.card.update_card(0)}">
             </Button>
             <Button
                 android:id="@+id/doubt_button"
@@ -76,7 +77,7 @@
                 android:layout_height="wrap_content"
                 android:backgroundTint="@android:color/holo_blue_light"
                 android:text="@string/doubt_button_title"
-                android:onClick="@{() -> card.update_card(3)}">
+                android:onClick="@{() -> viewModel.card.update_card(3)}">
             </Button>
             <Button
                 android:id="@+id/easy_button"
@@ -84,7 +85,7 @@
                 android:layout_height="wrap_content"
                 android:backgroundTint="@android:color/holo_green_light"
                 android:text="@string/easy_button_title"
-                android:onClick="@{() -> card.update_card(5)}">
+                android:onClick="@{() -> viewModel.card.update_card(5)}">
             </Button>
 
         </LinearLayout>

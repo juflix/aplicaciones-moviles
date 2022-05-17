@@ -94,9 +94,14 @@ open class Card(
         }
         update(LocalDateTime.now())
     }
+
     fun update_card(quality: Int) {
         this.quality = quality
         update(LocalDateTime.now())
+    }
+
+    fun isDue(date: LocalDateTime): Boolean {
+        return date.toString() == nextPracticeDate
     }
 
 }
