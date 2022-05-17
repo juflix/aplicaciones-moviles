@@ -101,7 +101,7 @@ open class Card(
     }
 
     fun isDue(date: LocalDateTime): Boolean {
-        return date.toString() == nextPracticeDate
+        return date.isAfter(LocalDateTime.parse(nextPracticeDate))
     }
 
 }

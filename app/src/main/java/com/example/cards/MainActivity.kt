@@ -25,7 +25,10 @@ class MainActivity : AppCompatActivity() {
         }
         viewModel.update(quality)
         if (viewModel.card == null){
-            Toast.makeText(this@MainActivity, "No more cards to review", Toast.LENGTH_SHORT)
+            Toast.makeText(this@MainActivity,
+                "No more cards to review",
+                Toast.LENGTH_SHORT
+            ).show()
         }
 
         binding.invalidateAll()
@@ -41,9 +44,9 @@ class MainActivity : AppCompatActivity() {
             binding.invalidateAll()
         }
 
-        binding.hardButton.setOnClickListener{}
-        binding.doubtButton.setOnClickListener{}
-        binding.easyButton.setOnClickListener{}
+        binding.hardButton.setOnClickListener(listener)
+        binding.doubtButton.setOnClickListener(listener)
+        binding.easyButton.setOnClickListener(listener)
 
     }
 

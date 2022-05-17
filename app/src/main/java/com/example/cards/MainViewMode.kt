@@ -22,7 +22,7 @@ class MainViewModel : ViewModel() {
         card = random_card()
     }
 
-    private fun dueCards() = cards.filter{card -> card.isDue(LocalDateTime.now())}
+    private fun dueCards() = cards.filter{it.isDue(LocalDateTime.now())}
 
     private fun random_card() =  try {
         dueCards().random()
