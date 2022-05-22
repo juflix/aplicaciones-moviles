@@ -1,5 +1,7 @@
 package com.example.cards
 
+import androidx.lifecycle.LiveData
+import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import timber.log.Timber
 import java.time.LocalDateTime
@@ -7,12 +9,17 @@ import java.util.*
 import kotlin.NoSuchElementException
 import kotlin.random.Random.Default.nextInt
 
-class MainViewModel : ViewModel() {
+class StudyViewModel : ViewModel() {
+    private val _nDueCards = MutableLiveData<Int>()
+    val nDueCards : LiveData<Int>
+        get() = _nDueCards
+
     var card: Card? = null
     private var cards = CardsApplication.cards
 
     init {
         card = random_card()
+        _nDueCards.value = dueCards().size
     }
 
     private fun dueCards() = cards.filter{it.isDue(LocalDateTime.now())}
@@ -27,5 +34,6 @@ class MainViewModel : ViewModel() {
         card?.quality = quality
         card?.update(LocalDateTime.now())
         card = random_card()
+        _nDueCards.value = nDueCards.value?.minus(1)
     }
 }

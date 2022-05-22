@@ -6,16 +6,15 @@ import android.view.View
 import android.widget.Toast
 import androidx.databinding.DataBindingUtil
 import androidx.lifecycle.ViewModelProvider
-import com.example.cards.databinding.ActivityMainBinding
-import com.google.android.material.snackbar.Snackbar
+import com.example.cards.databinding.ActivityStudyBinding
 import timber.log.Timber
 import java.util.*
 
-class MainActivity : AppCompatActivity() {
-    lateinit var binding: ActivityMainBinding
+class StudyActivity : AppCompatActivity() {
+    lateinit var binding: ActivityStudyBinding
 
-    private val viewModel: MainViewModel by lazy {
-        ViewModelProvider(this).get(MainViewModel::class.java)
+    private val viewModel: StudyViewModel by lazy {
+        ViewModelProvider(this).get(StudyViewModel::class.java)
     }
 
     private var listener = View.OnClickListener { v ->
@@ -27,7 +26,7 @@ class MainActivity : AppCompatActivity() {
         }
         viewModel.update(quality)
         if (viewModel.card == null){
-            Toast.makeText(this@MainActivity,
+            Toast.makeText(this@StudyActivity,
                 "No more cards to review",
                 Toast.LENGTH_SHORT
             ).show()
@@ -38,9 +37,10 @@ class MainActivity : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        binding = DataBindingUtil.setContentView(this, R.layout.activity_main)
+        binding = DataBindingUtil.setContentView(this, R.layout.activity_study)
 
         binding.viewModel = viewModel
+
         binding.answerButton.setOnClickListener {
             viewModel.card?.answered = true
             binding.invalidateAll()

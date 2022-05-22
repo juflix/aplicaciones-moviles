@@ -10,4 +10,9 @@
     <string name="doubt_button_title">Dudo</string>
     <string name="hard_button_title">Dificil</string>
 
+    <string name="info_text_view_message">Cartas restantes</string>
+    <string name="due_cards_format">%d cartas restantes</string>
+
+    <string name="subtitle_text">Pulsar para empezar</string>
+
 </resources>

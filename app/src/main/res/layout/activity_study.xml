@@ -8,13 +8,23 @@
         <import type="android.view.View"/>
         <variable
             name="viewModel"
-            type="com.example.cards.MainViewModel" />
+            type="com.example.cards.StudyViewModel" />
     </data>
 
     <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:visibility="@{viewModel.card == null ? View.INVISIBLE : View.VISIBLE}">
+
+        <TextView
+            android:id="@+id/info_text_view"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerHorizontal="true"
+            android:text="@{@string/due_cards_format(viewModel.nDueCards)}"
+            android:textSize="20dp"
+            tools:text="@string/info_text_view_message"
+            android:layout_marginTop="10pt"/>
 
         <TextView
             android:id="@+id/question_text_view"

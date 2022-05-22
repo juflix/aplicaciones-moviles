@@ -10,4 +10,9 @@
     <string name="doubt_button_title">Doubt</string>
     <string name="hard_button_title">Hard</string>
 
+    <string name="info_text_view_message">Remaining cards</string>
+    <string name="due_cards_format">%d remaining cards</string>
+
+    <string name="subtitle_text">Tap to study</string>
+
 </resources>
