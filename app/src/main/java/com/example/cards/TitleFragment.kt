@@ -1,5 +1,6 @@
 package com.example.cards
 
+import android.content.Intent
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
@@ -15,11 +16,16 @@ class TitleFragment: Fragment() {
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
+
         val binding = DataBindingUtil.inflate<FragmentTitleBinding>(
             inflater,
             R.layout.fragment_title,
             container,
             false)
+
+        binding.cardsTitleTextView.setOnClickListener {
+            startActivity(Intent(activity, StudyActivity::class.java))
+        }
 
         return binding.root
     }
