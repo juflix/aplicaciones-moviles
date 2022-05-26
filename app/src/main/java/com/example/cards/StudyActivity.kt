@@ -2,15 +2,19 @@ package com.example.cards
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.view.LayoutInflater
 import android.view.View
+import android.view.ViewGroup
 import android.widget.Toast
 import androidx.databinding.DataBindingUtil
+import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
 import com.example.cards.databinding.ActivityStudyBinding
+import com.example.cards.databinding.FragmentTitleBinding
 import timber.log.Timber
 import java.util.*
 
-class StudyActivity : AppCompatActivity() {
+class StudyActivity : Fragment() {
     lateinit var binding: ActivityStudyBinding
 
     private val viewModel: StudyViewModel by lazy {
@@ -26,7 +30,7 @@ class StudyActivity : AppCompatActivity() {
         }
         viewModel.update(quality)
         if (viewModel.card == null){
-            Toast.makeText(this@StudyActivity,
+            Toast.makeText(context,
                 "No more cards to review",
                 Toast.LENGTH_SHORT
             ).show()
@@ -35,9 +39,17 @@ class StudyActivity : AppCompatActivity() {
         binding.invalidateAll()
     }
 
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
-        binding = DataBindingUtil.setContentView(this, R.layout.activity_study)
+
+    override fun onCreateView(
+        inflater: LayoutInflater,
+        container: ViewGroup?,
+        savedInstanceState: Bundle?
+    ): View {
+        binding = DataBindingUtil.inflate<ActivityStudyBinding>(
+            inflater,
+            R.layout.activity_study,
+            container,
+            false)
 
         binding.viewModel = viewModel
 
@@ -50,6 +62,7 @@ class StudyActivity : AppCompatActivity() {
         binding.doubtButton.setOnClickListener(listener)
         binding.easyButton.setOnClickListener(listener)
 
+        return binding.root
     }
 
     override fun onStart(){

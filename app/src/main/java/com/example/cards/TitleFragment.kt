@@ -14,12 +14,19 @@ class TitleFragment: Fragment() {
         inflater: LayoutInflater,
         container: ViewGroup?,
         savedInstanceState: Bundle?
-    ): View? {
+    ): View {
         val binding = DataBindingUtil.inflate<FragmentTitleBinding>(
             inflater,
             R.layout.fragment_title,
             container,
             false)
+        binding.title.setOnClickListener {
+            parentFragmentManager
+                .beginTransaction()
+                .replace(R.id.fragment_container, StudyActivity())
+                .commit()
+
+        }
 
         return binding.root
     }
