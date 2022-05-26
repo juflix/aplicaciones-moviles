@@ -16,7 +16,6 @@ class TitleFragment: Fragment() {
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-
         val binding = DataBindingUtil.inflate<FragmentTitleBinding>(
             inflater,
             R.layout.fragment_title,
@@ -24,7 +23,12 @@ class TitleFragment: Fragment() {
             false)
 
         binding.cardsTitleTextView.setOnClickListener {
-            startActivity(Intent(activity, StudyActivity::class.java))
+            val fragment = StudyFragment()
+
+            activity?.supportFragmentManager
+                ?.beginTransaction()
+                ?.replace(R.id.fragment_container, fragment)
+                ?.commit()
         }
 
         return binding.root

@@ -10,6 +10,19 @@ class TitleActivity : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+
         binding = DataBindingUtil.setContentView(this, R.layout.activity_title)
+
+        var fragment = supportFragmentManager
+            .findFragmentById(R.id.fragment_container)
+
+        if (fragment == null){
+            fragment = TitleFragment()
+
+            supportFragmentManager
+                .beginTransaction()
+                .add(R.id.fragment_container, fragment)
+                .commit()
+        }
     }
 }
