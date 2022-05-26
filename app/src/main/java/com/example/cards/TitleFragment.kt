@@ -1,6 +1,5 @@
 package com.example.cards
 
-import android.content.Intent
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
@@ -21,15 +20,6 @@ class TitleFragment: Fragment() {
             R.layout.fragment_title,
             container,
             false)
-
-        binding.cardsTitleTextView.setOnClickListener {
-            val fragment = StudyFragment()
-
-            activity?.supportFragmentManager
-                ?.beginTransaction()
-                ?.replace(R.id.fragment_container, fragment)
-                ?.commit()
-        }
 
         return binding.root
     }
