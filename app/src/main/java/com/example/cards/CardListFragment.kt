@@ -12,6 +12,7 @@ import com.example.cards.databinding.FragmentCardListBinding
 
 
 class CardListFragment : Fragment(){
+    private lateinit var adapter: CardAdapter
 
     override fun onCreateView(
         inflater: LayoutInflater,
@@ -24,7 +25,11 @@ class CardListFragment : Fragment(){
             container,
             false)
 
-        binding.reviewCardsButton.setOnClickListener { view ->
+        adapter = CardAdapter()
+        adapter.data = CardsApplication.cards
+        binding.cardListRecyclerView.adapter = adapter
+
+        binding.cardListStudyButton.setOnClickListener { view ->
             if (CardsApplication.numberOfDueCards() > 0)
                 view.findNavController()
                     .navigate(R.id.action_cardListFragment_to_studyFragment)
