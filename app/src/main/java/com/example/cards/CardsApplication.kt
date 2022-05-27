@@ -2,6 +2,7 @@ package com.example.cards
 
 import android.app.Application
 import timber.log.Timber
+import java.time.LocalDateTime
 
 class CardsApplication : Application() {
 
@@ -22,5 +23,6 @@ class CardsApplication : Application() {
 
     companion object{
         var cards: MutableList<Card> = mutableListOf<Card>()
+        fun numberOfDueCards() = cards.filter{it.isDue(LocalDateTime.now())}.size
     }
 }

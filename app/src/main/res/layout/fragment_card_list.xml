@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<layout xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <androidx.recyclerview.widget.RecyclerView
+            xmlns:app="http://schemas.android.com/apk/res-auto"
+            app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+            android:id="@+id/card_list_recycler_view"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginHorizontal="20sp"
+            android:layout_marginTop="30sp"
+            android:layout_marginBottom="50dp" />
+
+        <Button
+            android:id="@+id/review_cards_button"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignParentBottom="true"
+            android:text="@string/review_cards_text"
+            android:textStyle="bold"/>
+
+    </RelativeLayout>
+
+</layout>

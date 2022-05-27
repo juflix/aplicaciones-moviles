@@ -1,6 +1,5 @@
 package com.example.cards
 
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
@@ -9,13 +8,12 @@ import android.widget.Toast
 import androidx.databinding.DataBindingUtil
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
-import com.example.cards.databinding.ActivityStudyBinding
-import com.example.cards.databinding.FragmentTitleBinding
+import com.example.cards.databinding.FragmentStudyBinding
 import timber.log.Timber
 import java.util.*
 
-class StudyActivity : Fragment() {
-    lateinit var binding: ActivityStudyBinding
+class StudyFragment : Fragment() {
+    lateinit var binding: FragmentStudyBinding
 
     private val viewModel: StudyViewModel by lazy {
         ViewModelProvider(this).get(StudyViewModel::class.java)
@@ -31,7 +29,7 @@ class StudyActivity : Fragment() {
         viewModel.update(quality)
         if (viewModel.card == null){
             Toast.makeText(context,
-                "No more cards to review",
+                R.string.no_more_cards_toast_message,
                 Toast.LENGTH_SHORT
             ).show()
         }
@@ -39,15 +37,14 @@ class StudyActivity : Fragment() {
         binding.invalidateAll()
     }
 
-
     override fun onCreateView(
         inflater: LayoutInflater,
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View {
-        binding = DataBindingUtil.inflate<ActivityStudyBinding>(
+        binding = DataBindingUtil.inflate<FragmentStudyBinding>(
             inflater,
-            R.layout.activity_study,
+            R.layout.fragment_study,
             container,
             false)
 

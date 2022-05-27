@@ -12,7 +12,8 @@
 
     <string name="info_text_view_message">Remaining cards</string>
     <string name="due_cards_format">%d remaining cards</string>
-
     <string name="subtitle_text">Tap to study</string>
+    <string name="review_cards_text">Review cards</string>
+    <string name="no_more_cards_toast_message">No more cards to review</string>
 
 </resources>

@@ -12,7 +12,9 @@
 
     <string name="info_text_view_message">Cartas restantes</string>
     <string name="due_cards_format">%d cartas restantes</string>
-
     <string name="subtitle_text">Pulsar para empezar</string>
+    <string name="review_cards_text">Repasar cartas</string>
+    <string name="no_more_cards_toast_message">No hay mas cartas</string>
+
 
 </resources>
