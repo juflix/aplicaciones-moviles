@@ -12,9 +12,16 @@
 
     <string name="info_text_view_message">Remaining cards</string>
     <string name="due_cards_format">%d remaining cards</string>
-
     <string name="subtitle_text">Tap to study</string>
-    <!-- TODO: Remove or change this placeholder text -->
-    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="review_cards_text">Review cards</string>
+    <string name="no_more_cards_toast_message">No more cards to review</string>
+
+    <string name="accept_card_edit_button_title">Accept</string>
+    <string name="cancel_card_edit_button_title">Cancel</string>
+
+    <string name="question">Question</string>
+    <string name="answer">Answer</string>
+    <string name="enter_question">Write the question</string>
+    <string name="enter_answer">Write the answer</string>
 
 </resources>

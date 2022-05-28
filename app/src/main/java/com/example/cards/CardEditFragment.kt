@@ -4,29 +4,25 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.Toast
 import androidx.databinding.DataBindingUtil
 import androidx.fragment.app.Fragment
-import androidx.navigation.findNavController
+import com.example.cards.databinding.FragmentCardListBinding
 import com.example.cards.databinding.FragmentTitleBinding
 
-class TitleFragment: Fragment() {
+class CardEditFragment : Fragment() {
+    lateinit var card: Card
+    lateinit var binding: FragmentCardListBinding
 
     override fun onCreateView(
         inflater: LayoutInflater,
         container: ViewGroup?,
         savedInstanceState: Bundle?
-    ): View {
-        val binding = DataBindingUtil.inflate<FragmentTitleBinding>(
+    ): View? {
+        binding = DataBindingUtil.inflate(
             inflater,
-            R.layout.fragment_title,
+            R.layout.fragment_card_edit,
             container,
             false)
-
-        binding.title.setOnClickListener { view ->
-            view.findNavController()
-                    .navigate(R.id.action_titleFragment_to_cardListFragment)
-        }
 
         return binding.root
     }
