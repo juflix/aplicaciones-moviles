@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+
+<layout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:context=".CardEditFragment">
+
+    <data>
+        <variable
+            name="card"
+            type="com.example.cards.Card" />
+    </data>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <TextView
+            android:id="@+id/question_text_view"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="20sp"
+            android:text="@string/question"
+            android:textSize="20dp"
+            android:layout_marginTop="20pt"/>
+
+        <EditText
+            android:id="@+id/question_text_input"
+            android:layout_height="wrap_content"
+            android:layout_width="match_parent"
+            android:layout_marginHorizontal="20sp"
+            android:layout_marginVertical="10sp"
+            android:layout_below="@id/question_text_view"
+            android:inputType="text"
+            android:hint="@string/enter_question"/>
+
+        <TextView
+            android:id="@+id/answer_text_view"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="20sp"
+            android:text="@string/answer"
+            android:textSize="20dp"
+            android:layout_below="@id/question_text_input"
+            android:layout_marginTop="10pt"/>
+
+        <EditText
+            android:id="@+id/answer_text_input"
+            android:layout_height="wrap_content"
+            android:layout_width="match_parent"
+            android:layout_marginHorizontal="20sp"
+            android:layout_below="@id/answer_text_view"
+            android:inputType="text"
+            android:hint="@string/enter_answer"/>
+
+        <Button
+            android:id="@+id/accept_card_edit_button_title"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:layout_marginHorizontal="20sp"
+            android:text="@string/accept_card_edit_button_title" />
+
+        <Button
+            android:id="@+id/cancel_card_edit_button_title"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:layout_toRightOf="@id/accept_card_edit_button_title"
+            android:text="@string/cancel_card_edit_button_title" />
+
+    </RelativeLayout>
+
+</layout>

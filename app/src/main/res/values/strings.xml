@@ -16,4 +16,12 @@
     <string name="review_cards_text">Review cards</string>
     <string name="no_more_cards_toast_message">No more cards to review</string>
 
+    <string name="accept_card_edit_button_title">Accept</string>
+    <string name="cancel_card_edit_button_title">Cancel</string>
+
+    <string name="question">Question</string>
+    <string name="answer">Answer</string>
+    <string name="enter_question">Write the question</string>
+    <string name="enter_answer">Write the answer</string>
+
 </resources>

@@ -5,6 +5,7 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.TextView
 import android.widget.Toast
+import androidx.navigation.findNavController
 import androidx.recyclerview.widget.RecyclerView
 import com.example.cards.databinding.ListItemCardBinding
 
@@ -18,6 +19,7 @@ class CardAdapter : RecyclerView.Adapter<CardAdapter.CardHolder>() {
         fun bind(card: Card) {
             local.card = card
             itemView.setOnClickListener {
+                it.findNavController().navigate(R.id.action_cardListFragment_to_cardEditFragment)
                 Toast.makeText(it.context, card.question, Toast.LENGTH_SHORT).show()
             }
         }

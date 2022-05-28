@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="app_name">Tarjetas</string>
+
     <string name="answer_button_text">Ver respuesta</string>
     <string name="question_text">Árbol</string>
     <string name="answer_text">Tree</string>
@@ -16,5 +17,12 @@
     <string name="review_cards_text">Repasar cartas</string>
     <string name="no_more_cards_toast_message">No hay mas cartas</string>
 
+    <string name="accept_card_edit_button_title">Aceptar</string>
+    <string name="cancel_card_edit_button_title">Cancelar</string>
+
+    <string name="question">Pregunta</string>
+    <string name="answer">Respuesta</string>
+    <string name="enter_question">Escribe la pegunta</string>
+    <string name="enter_answer">Escribe la respuesta</string>
 
 </resources>
