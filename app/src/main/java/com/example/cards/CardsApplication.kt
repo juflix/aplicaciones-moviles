@@ -32,5 +32,6 @@ class CardsApplication : Application() {
     companion object{
         var cards: MutableList<Card> = mutableListOf<Card>()
         fun numberOfDueCards() = cards.filter{it.isDue(LocalDateTime.now())}.size
+        fun getCard() = cards
     }
 }

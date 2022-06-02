@@ -41,5 +41,8 @@
         <action
             android:id="@+id/action_cardEditFragment_to_cardListFragment"
             app:destination="@id/cardListFragment" />
+        <argument
+            android:name="cardid"
+            app:argType="string" />
     </fragment>
 </navigation>

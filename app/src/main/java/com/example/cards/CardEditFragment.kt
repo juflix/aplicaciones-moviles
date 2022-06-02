@@ -24,6 +24,10 @@ class CardEditFragment : Fragment() {
             container,
             false)
 
+        val args = CardEditFragmentArgs.fromBundle(requireArguments())
+        card = CardsApplication.getCard(args.cardId) ?: throw Exception("Wrong id")
+        binding.card = card
+
         return binding.root
     }
 }

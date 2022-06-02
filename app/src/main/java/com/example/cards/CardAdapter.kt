@@ -19,11 +19,12 @@ class CardAdapter : RecyclerView.Adapter<CardAdapter.CardHolder>() {
         fun bind(card: Card) {
             local.card = card
             itemView.setOnClickListener {
-                it.findNavController().navigate(R.id.action_cardListFragment_to_cardEditFragment)
-                Toast.makeText(it.context, card.question, Toast.LENGTH_SHORT).show()
+                it.findNavController()
+                    .navigate(CardListFragmentDirections.actionCardListFragmentToCardEditFragment(card.id))
             }
         }
     }
+
 
     override fun onCreateViewHolder(
         parent: ViewGroup,
