@@ -21,7 +21,5 @@
 
     <string name="question">Question</string>
     <string name="answer">Answer</string>
-    <string name="enter_question">Write the question</string>
-    <string name="enter_answer">Write the answer</string>
 
 </resources>
