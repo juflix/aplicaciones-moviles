@@ -76,4 +76,5 @@ class CardEditFragment : Fragment() {
                 .navigate(R.id.action_cardEditFragment_to_cardListFragment)
         }
     }
+
 }
