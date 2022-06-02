@@ -22,7 +22,5 @@
 
     <string name="question">Pregunta</string>
     <string name="answer">Respuesta</string>
-    <string name="enter_question">Escribe la pegunta</string>
-    <string name="enter_answer">Escribe la respuesta</string>
 
 </resources>
