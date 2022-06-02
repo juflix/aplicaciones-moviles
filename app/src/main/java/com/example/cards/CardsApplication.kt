@@ -17,11 +17,6 @@ class CardsApplication : Application() {
         cards.add(Card("couverture", "cobija"))
         cards.add(Card("chauve", "pelón"))
         cards.add(Card("trinquer", "bridar"))
-
-        for(i in 1..100){
-            cards.add(Card("question$i", "pregunta$i"))
-        }
-
     }
 
     override fun onCreate() {
@@ -30,8 +25,9 @@ class CardsApplication : Application() {
     }
 
     companion object{
-        var cards: MutableList<Card> = mutableListOf<Card>()
+        var cards: MutableList<Card> = mutableListOf()
         fun numberOfDueCards() = cards.filter{it.isDue(LocalDateTime.now())}.size
         fun getCard(idCard : String) = cards.find { it.id == idCard }
+        fun addCard(newCard : Card) = cards.add(newCard)
     }
 }

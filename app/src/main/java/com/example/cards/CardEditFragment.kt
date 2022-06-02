@@ -64,12 +64,12 @@ class CardEditFragment : Fragment() {
         binding.questionEditText.addTextChangedListener(questionTextWatcher)
         binding.answerEditText.addTextChangedListener(answerTextWatcher)
 
-        binding.acceptCardEdit.setOnClickListener{
+        binding.acceptCardEditButton.setOnClickListener{
             it.findNavController()
                 .navigate(R.id.action_cardEditFragment_to_cardListFragment)
         }
 
-        binding.cancelCardEdit.setOnClickListener{
+        binding.cancelCardEditButton.setOnClickListener{
             card.question = question
             card.answer = answer
             it.findNavController()

@@ -28,7 +28,7 @@ open class Card(
 
     open fun show() {
         print("  $question \n  (press any key to see the answer)")
-        var entry = readLine()
+        readLine()
 
         print("  $answer\n  0 -> Difficult 3 -> Doubt 5 -> Easy :")
         var difficulty = readLine()?.toIntOrNull() ?: -1

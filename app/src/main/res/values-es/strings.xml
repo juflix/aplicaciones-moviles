@@ -23,4 +23,12 @@
     <string name="question">Pregunta</string>
     <string name="answer">Respuesta</string>
 
+    <string name="new_card_fab_description">Nueva Carta</string>
+    <string name="added_card">Carta Añadida</string>
+
+    <string name="card_question_hint">Escribe la pregunta</string>
+    <string name="card_answer_hint">Escribe la respuesta</string>
+    <string name="decks_nav_menu_title">Mazos</string>
+    <string name="study_nav_menu_title">Repasar tarjetas</string>
+
 </resources>

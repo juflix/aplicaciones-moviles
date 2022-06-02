@@ -9,6 +9,7 @@ import androidx.databinding.DataBindingUtil
 import androidx.fragment.app.Fragment
 import androidx.navigation.findNavController
 import com.example.cards.databinding.FragmentCardListBinding
+import com.google.android.material.snackbar.Snackbar
 
 
 class CardListFragment : Fragment(){
@@ -29,16 +30,14 @@ class CardListFragment : Fragment(){
         adapter.data = CardsApplication.cards
         binding.cardListRecyclerView.adapter = adapter
 
-        binding.cardListStudyButton.setOnClickListener { view ->
-            if (CardsApplication.numberOfDueCards() > 0)
-                view.findNavController()
-                    .navigate(R.id.action_cardListFragment_to_studyFragment)
-            else
-                Toast.makeText(
-                    requireActivity(),
-                    R.string.no_more_cards_toast_message,
-                    Toast.LENGTH_LONG
-                ).show()
+        // TODO("add a card -> Cancel creates an empty card")
+
+        binding.newCardFab.setOnClickListener {
+            val card = Card("", "")
+            CardsApplication.addCard(card)
+
+            it.findNavController()
+                .navigate(CardListFragmentDirections.actionCardListFragmentToCardEditFragment(card.id))
         }
 
         return binding.root

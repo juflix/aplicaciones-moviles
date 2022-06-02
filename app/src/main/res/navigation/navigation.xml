@@ -25,7 +25,7 @@
         android:id="@+id/cardListFragment"
         android:name="com.example.cards.CardListFragment"
         android:label="CardListFragment"
-        tools:layout="@layout/fragment_card_list">>
+        tools:layout="@layout/fragment_card_list">
         <action
             android:id="@+id/action_cardListFragment_to_studyFragment"
             app:destination="@id/studyFragment" />
