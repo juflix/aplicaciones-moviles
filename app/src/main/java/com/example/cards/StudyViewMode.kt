@@ -1,36 +1,39 @@
 package com.example.cards
 
-import androidx.lifecycle.LiveData
-import androidx.lifecycle.MutableLiveData
-import androidx.lifecycle.ViewModel
+import android.app.Application
+import androidx.lifecycle.*
+import com.example.cards.database.CardDatabase
 import java.time.LocalDateTime
+import java.util.concurrent.Executors
 import kotlin.NoSuchElementException
 
-class StudyViewModel : ViewModel() {
-    private val _nDueCards = MutableLiveData<Int>()
-    val nDueCards : LiveData<Int>
-        get() = _nDueCards
+class StudyViewModel(application: Application) : AndroidViewModel(application) {
+    private val executor = Executors.newSingleThreadExecutor()
+    private val context = getApplication<Application>().applicationContext
 
     var card: Card? = null
-    private var cards = CardsApplication.cards
-
-    init {
-        card = randomCard()
-        _nDueCards.value = dueCards().size
+    var cards: LiveData<List<Card>> = CardDatabase.getInstance(context).cardDao.getCards()
+    var dueCard: LiveData<Card?> = Transformations.map(cards) {
+        try {
+            it.filter {
+                it.isDue(LocalDateTime.now())
+            }.random()
+        } catch (e: Exception) {
+            null
+        }
     }
 
-    private fun dueCards() = cards.filter{it.isDue(LocalDateTime.now())}
-
-    private fun randomCard() =  try {
-        dueCards().random()
-    } catch (e: NoSuchElementException) {
-        null
+    var nDueCards: LiveData<Int> = Transformations.map(cards) { list ->
+        list.filter {
+            it.isDue(LocalDateTime.now())
+        }.size
     }
 
     fun update(quality: Int) {
         card?.quality = quality
         card?.update(LocalDateTime.now())
-        card = randomCard()
-        _nDueCards.value = nDueCards.value?.minus(1)
+        executor.execute {
+            CardDatabase.getInstance(context).cardDao.update(card!!)
+        }
     }
 }

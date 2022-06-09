@@ -13,7 +13,7 @@ import timber.log.Timber
 import java.util.*
 
 class StudyFragment : Fragment() {
-    lateinit var binding: FragmentStudyBinding
+    private lateinit var binding: FragmentStudyBinding
 
     private val viewModel: StudyViewModel by lazy {
         ViewModelProvider(this).get(StudyViewModel::class.java)
@@ -49,6 +49,10 @@ class StudyFragment : Fragment() {
             false)
 
         binding.viewModel = viewModel
+        viewModel.dueCard.observe(viewLifecycleOwner){
+            viewModel.card = it
+            binding.invalidateAll()
+        }
 
         binding.answerButton.setOnClickListener {
             viewModel.card?.answered = true
