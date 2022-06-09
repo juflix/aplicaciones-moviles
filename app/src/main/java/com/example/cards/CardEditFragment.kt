@@ -6,18 +6,26 @@ import android.text.TextWatcher
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.Toast
-import androidx.core.text.toSpannable
 import androidx.databinding.DataBindingUtil
 import androidx.fragment.app.Fragment
+import androidx.fragment.app.viewModels
+import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.findNavController
+import com.example.cards.database.CardDatabase
 import com.example.cards.databinding.FragmentCardEditBinding
+import java.util.concurrent.Executors
 
 class CardEditFragment : Fragment() {
+    private val executor = Executors.newSingleThreadExecutor()
+
     lateinit var binding: FragmentCardEditBinding
     lateinit var card: Card
     lateinit var question: String
     lateinit var answer: String
+
+    private val viewModel by lazy {
+        ViewModelProvider(this).get(CardEditViewModel::class.java)
+    }
 
     override fun onCreateView(
         inflater: LayoutInflater,
@@ -32,12 +40,13 @@ class CardEditFragment : Fragment() {
         )
 
         val args = CardEditFragmentArgs.fromBundle(requireArguments())
-
-        card = CardsApplication.getCard(args.cardId) ?: throw Exception("Wrong id")
-        binding.card = card
-
-        question = card.question
-        answer = card.answer
+        viewModel.loadCardId(args.cardId)
+        viewModel.card.observe(viewLifecycleOwner) {
+            card = it
+            binding.card = card
+            question = card.question
+            answer = card.answer
+        }
 
         return binding.root
     }
@@ -65,6 +74,9 @@ class CardEditFragment : Fragment() {
         binding.answerEditText.addTextChangedListener(answerTextWatcher)
 
         binding.acceptCardEditButton.setOnClickListener{
+            executor.execute{
+                CardDatabase.getInstance(it.context).cardDao.update(card)
+            }
             it.findNavController()
                 .navigate(R.id.action_cardEditFragment_to_cardListFragment)
         }

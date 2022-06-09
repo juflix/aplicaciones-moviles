@@ -18,3 +18,7 @@ class TitleActivity : AppCompatActivity() {
         binding.navView.setupWithNavController(navHostFragment.navController)
     }
 }
+
+// TODO:
+//  - unit 26, fragment statistics
+//  - unit 27 en entier car j'ai rien fait hihihi

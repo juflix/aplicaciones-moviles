@@ -1,13 +1,17 @@
 package com.example.cards
 
 import android.view.View
+import androidx.room.ColumnInfo
+import androidx.room.Entity
+import androidx.room.PrimaryKey
 import java.lang.Double.max
 import java.time.LocalDateTime
 import java.time.format.DateTimeFormatter
 import java.util.*
 
-
+@Entity(tableName = "cards_table")
 open class Card(
+    @ColumnInfo(name = "card_question")
     var question: String,
     var answer: String,
     var quality: Int = -1,
@@ -18,9 +22,11 @@ open class Card(
 
     var creationDate: String = LocalDateTime.now().toString(),
     var nextPracticeDate: String = LocalDateTime.now().toString(),
-    var id: String = UUID.randomUUID().toString(),
 
-    var answered: Boolean = false
+    var answered: Boolean = false,
+
+    @PrimaryKey
+    var id: String = UUID.randomUUID().toString()
 ) {
     override fun toString(): String = run {
         return ("card | $question | $answer | $creationDate | $easiness | $interval | $repetitions | $nextPracticeDate")
@@ -105,31 +111,3 @@ open class Card(
     }
 
 }
-
-/*
-
-fun fromString(cad: String): Card {
-    var card: Card
-    var chunks = cad.split(" | ")
-    chunks.forEach {
-        it.apply {
-            trim()
-            trimEnd()
-        }
-    }
-    if (chunks[0] == "cloze") card = Cloze(chunks[1], chunks[2])
-    else if (chunks[0] == "card") card = Card(chunks[1], chunks[2])
-    else {
-        throw(Exception("Incorrect type for card in file : '${chunks[0]}'"))
-    }
-    card.apply {
-        creationDate = chunks[3]
-        easiness = chunks[4].toDouble()
-        interval = chunks[5].toLong()
-        repetitions = chunks[6].toInt()
-        nextPracticeDate = chunks[7]
-    }
-    return card
-}
-
-*/
