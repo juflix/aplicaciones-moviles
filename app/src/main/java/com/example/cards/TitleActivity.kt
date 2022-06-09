@@ -21,4 +21,6 @@ class TitleActivity : AppCompatActivity() {
 
 // TODO:
 //  - unit 26, fragment statistics
-//  - unit 27 en entier car j'ai rien fait hihihi
+//  - unit 27 en entier
+//  - unit 31.6
+//  car j'ai rien fait hihihi

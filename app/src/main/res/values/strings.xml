@@ -30,5 +30,7 @@
     <string name="decks_nav_menu_title">Decks</string>
     <string name="study_nav_menu_title">Review cards</string>
     <string name="statistics_nav_menu_title">Statistics</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
 
 </resources>

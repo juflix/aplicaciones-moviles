@@ -14,10 +14,21 @@ class CardsApplication : Application() {
         val cardDatabase = CardDatabase.getInstance(applicationContext)
 
         executor.execute{
-            cardDatabase.cardDao.deleteCards()
-            cardDatabase.cardDao.addCard(Card("tent", "carpa"))
-            cardDatabase.cardDao.addCard(Card("stamp", "sello"))
-            cardDatabase.cardDao.addCard(Card("bone", "huesos"))
+            cardDatabase.cardDao.addCard(
+                Card("To wake up", "Despertarse", deckId = 1)
+            )
+            cardDatabase.cardDao.addCard(
+                Card("To rule out", "Descartar", deckId = 1)
+            )
+            cardDatabase.cardDao.addCard(
+                Card("To turn down", "Rechazar", deckId = 1)
+            )
+            cardDatabase.cardDao.addCard(
+                Card("La voiture", "El coche", deckId = 2)
+            )
+            cardDatabase.cardDao.addCard(
+                Card("J'ai faim", "Tengo hambre", deckId = 2)
+            )
         }
 
         Timber.plant(Timber.DebugTree())

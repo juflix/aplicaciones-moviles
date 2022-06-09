@@ -25,6 +25,8 @@ open class Card(
 
     var answered: Boolean = false,
 
+    var deckId: Long = 0,
+
     @PrimaryKey
     var id: String = UUID.randomUUID().toString()
 ) {
