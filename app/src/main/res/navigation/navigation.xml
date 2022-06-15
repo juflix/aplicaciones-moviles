@@ -16,11 +16,13 @@
             android:id="@+id/action_titleFragment_to_cardListFragment"
             app:destination="@id/cardListFragment" />
     </fragment>
+
     <fragment
         android:id="@+id/studyFragment"
         android:name="com.example.cards.StudyFragment"
         android:label="StudyFragment"
         tools:layout="@layout/fragment_study"/>
+
     <fragment
         android:id="@+id/cardListFragment"
         android:name="com.example.cards.CardListFragment"
@@ -33,6 +35,7 @@
             android:id="@+id/action_cardListFragment_to_cardEditFragment"
             app:destination="@id/cardEditFragment" />
     </fragment>
+
     <fragment
         android:id="@+id/cardEditFragment"
         android:name="com.example.cards.CardEditFragment"
@@ -49,16 +52,9 @@
     </fragment>
     <fragment
         android:id="@+id/aboutFragment"
-        android:name="com.example.cards.CardEditFragment"
-        android:label="fragment_card_edit"
-        tools:layout="@layout/fragment_card_edit" >
-        <action
-            android:id="@+id/action_cardEditFragment_to_cardListFragment"
-            app:destination="@id/cardListFragment"
-            app:popUpTo="@id/cardListFragment"
-            app:popUpToInclusive="true" />
-        <argument
-            android:name="cardId"
-            app:argType="string" />
-    </fragment>
+        android:name="com.example.cards.AboutFragment"
+        android:label="fragment_about"
+        tools:layout="@layout/fragment_about" />
+
+
 </navigation>

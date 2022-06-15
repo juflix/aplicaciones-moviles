@@ -1,17 +1,18 @@
 package com.example.cards
 
 import android.annotation.SuppressLint
+import android.content.Intent
 import android.os.Bundle
-import android.view.LayoutInflater
-import android.view.View
-import android.view.ViewGroup
+import android.view.*
 import android.widget.Toast
 import androidx.databinding.DataBindingUtil
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.findNavController
+import androidx.preference.PreferenceManager
 import com.example.cards.database.CardDatabase
 import com.example.cards.databinding.FragmentCardListBinding
+import com.google.android.material.snackbar.Snackbar
 import java.util.concurrent.Executors
 
 
@@ -21,6 +22,17 @@ class CardListFragment : Fragment(){
 
     private val cardListViewModel by lazy{
         ViewModelProvider(this).get(CardListViewModel::class.java)
+    }
+
+    override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
+        setHasOptionsMenu(true)
+
+        PreferenceManager.setDefaultValues(
+            requireContext(),
+            R.xml.root_preferences,
+            false
+        )
     }
 
     override fun onCreateView(
@@ -36,10 +48,11 @@ class CardListFragment : Fragment(){
 
         adapter = CardAdapter()
         adapter.data = emptyList()
-        binding.cardListRecyclerView.adapter = adapter
+
+        SettingsActivity.setLoggedIn(requireContext(), true)
 
         // TODO("add a card -> Cancel creates an empty card")
-
+        binding.cardListRecyclerView.adapter = adapter
         binding.newCardFab.setOnClickListener {
             val card = Card("", "")
             executor.execute{
@@ -55,5 +68,19 @@ class CardListFragment : Fragment(){
         }
 
         return binding.root
+    }
+
+    override fun onCreateOptionsMenu(menu: Menu, inflater: MenuInflater) {
+        super.onCreateOptionsMenu(menu, inflater)
+        inflater.inflate(R.menu.fragment_card_list, menu)
+    }
+
+    override fun onOptionsItemSelected(item: MenuItem): Boolean {
+        when (item.itemId) {
+            R.id.settings -> {
+                startActivity(Intent(requireContext(), SettingsActivity::class.java))
+            }
+        }
+        return true
     }
 }

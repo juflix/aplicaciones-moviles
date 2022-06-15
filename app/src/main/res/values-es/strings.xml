@@ -30,5 +30,21 @@
     <string name="card_answer_hint">Escribe la respuesta</string>
     <string name="decks_nav_menu_title">Mazos</string>
     <string name="study_nav_menu_title">Repasar tarjetas</string>
+    <string name="statistics_nav_menu_title">Statisticas</string>
+    <string name="about_nav_menu_title">Sobre</string>
+    <string name="settings_menu_title">Configuraciones</string>
+    <string name="logout_menu_title">Cerrar sesión</string>
+    <string name="title_activity_settings">SettingsActivity</string>
+
+    <!-- Preference Titles -->
+    <string name="decks_header">Mazos</string>
+
+    <!-- Maximum number of cards Preferences -->
+    <string name="max_number_cards">Número máximo de tarjetas</string>
+
+    <!-- Board Preferences -->
+    <string name="board_title">Mostrar tablero</string>
+    <string name="board_summary_on">Tablero disponible</string>
+    <string name="board_summary_off">Tablero indisponible</string>
 
 </resources>

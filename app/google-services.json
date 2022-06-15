@@ -1,0 +1,48 @@
+{
+  "project_info": {
+    "project_number": "16506513447",
+    "firebase_url": "https://juliettefelixcards-default-rtdb.europe-west1.firebasedatabase.app",
+    "project_id": "juliettefelixcards",
+    "storage_bucket": "juliettefelixcards.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:16506513447:android:7c7f3c6f8c14202a72c602",
+        "android_client_info": {
+          "package_name": "com.example.cards"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "16506513447-3ucqnpcjonb7pgus7gkif208i5rugctk.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.cards",
+            "certificate_hash": "8d95bcbaa12f1768de15599618bedbea1269182e"
+          }
+        },
+        {
+          "client_id": "16506513447-n3l5kmslv0g2b9r1r49ar0f2mnj5mtia.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCd_HoqEFkaI5cjFniQHq5CA-cPJQCvKrI"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "16506513447-n3l5kmslv0g2b9r1r49ar0f2mnj5mtia.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

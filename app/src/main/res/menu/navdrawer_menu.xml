@@ -13,8 +13,8 @@
         android:icon="@drawable/ic_baseline_play_circle_filled_24"
         android:title="@string/study_nav_menu_title"/>
     <item
-        android:id="@id/statisticsFragment"
+        android:id="@id/aboutFragment"
         android:enabled="true"
         android:icon="@drawable/ic_baseline_play_circle_filled_24"
-        android:title="@string/study_nav_menu_title"/>
+        android:title="@string/about_nav_menu_title"/>
 </menu>

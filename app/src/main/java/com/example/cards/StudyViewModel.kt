@@ -1,15 +1,19 @@
 package com.example.cards
 
+import android.annotation.SuppressLint
 import android.app.Application
+import android.graphics.Path
 import androidx.lifecycle.*
 import com.example.cards.database.CardDatabase
 import java.time.LocalDateTime
 import java.util.concurrent.Executors
-import kotlin.NoSuchElementException
 
 class StudyViewModel(application: Application) : AndroidViewModel(application) {
     private val executor = Executors.newSingleThreadExecutor()
+    @SuppressLint("StaticFieldLeak")
     private val context = getApplication<Application>().applicationContext
+
+    var boardPath = Path()
 
     var card: Card? = null
     var cards: LiveData<List<Card>> = CardDatabase.getInstance(context).cardDao.getCards()

@@ -1,5 +1,6 @@
 package com.example.cards
 
+import android.graphics.Path
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
@@ -8,9 +9,9 @@ import android.widget.Toast
 import androidx.databinding.DataBindingUtil
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
+import androidx.preference.PreferenceManager
 import com.example.cards.databinding.FragmentStudyBinding
 import timber.log.Timber
-import java.util.*
 
 class StudyFragment : Fragment() {
     private lateinit var binding: FragmentStudyBinding
@@ -27,6 +28,10 @@ class StudyFragment : Fragment() {
             else -> throw Exception("Quality button unknown")
         }
         viewModel.update(quality)
+
+        viewModel.boardPath = Path()
+        binding.boardView.reset()
+
         if (viewModel.card == null){
             Toast.makeText(context,
                 R.string.no_more_cards_toast_message,
@@ -62,6 +67,11 @@ class StudyFragment : Fragment() {
         binding.hardButton.setOnClickListener(listener)
         binding.doubtButton.setOnClickListener(listener)
         binding.easyButton.setOnClickListener(listener)
+
+        binding.boardView.visibility = if(SettingsActivity.getShowBoard(requireContext()))
+            View.VISIBLE
+        else
+            View.INVISIBLE
 
         return binding.root
     }
