@@ -1,4 +1,4 @@
-package com.example.cards
+package com.example.cards.card
 
 import android.view.LayoutInflater
 import android.view.View
@@ -8,17 +8,21 @@ import androidx.recyclerview.widget.RecyclerView
 import com.example.cards.databinding.ListItemCardBinding
 
 class CardAdapter : RecyclerView.Adapter<CardAdapter.CardHolder>() {
-
     var data =  listOf<Card>()
     lateinit var binding: ListItemCardBinding
-
     inner class CardHolder(view: View) : RecyclerView.ViewHolder(view) {
         private var local = binding
         fun bind(card: Card) {
             local.card = card
+
             itemView.setOnClickListener {
                 it.findNavController()
-                    .navigate(CardListFragmentDirections.actionCardListFragmentToCardEditFragment(card.id))
+                    .navigate(
+                        CardListFragmentDirections.actionCardListFragmentToCardEditFragment(
+                            card.id,
+                            card.deckId
+                        )
+                    )
             }
         }
     }

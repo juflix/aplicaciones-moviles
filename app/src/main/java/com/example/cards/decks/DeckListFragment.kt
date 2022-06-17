@@ -1,27 +1,29 @@
-package com.example.cards
+package com.example.cards.decks
 
 import android.annotation.SuppressLint
 import android.content.Intent
 import android.os.Bundle
 import android.view.*
-import android.widget.Toast
 import androidx.databinding.DataBindingUtil
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.findNavController
 import androidx.preference.PreferenceManager
-import com.example.cards.database.CardDatabase
-import com.example.cards.databinding.FragmentCardListBinding
-import com.google.android.material.snackbar.Snackbar
+import com.example.cards.*
+import com.example.cards.databinding.FragmentDeckListBinding
+import com.google.firebase.database.FirebaseDatabase
 import java.util.concurrent.Executors
 
 
-class CardListFragment : Fragment(){
+class DeckListFragment : Fragment(){
     private val executor = Executors.newSingleThreadExecutor()
-    private lateinit var adapter: CardAdapter
+    private lateinit var adapter: DeckAdapter
+    private var reference = FirebaseDatabase
+        .getInstance()
+        .getReference("decks")
 
-    private val cardListViewModel by lazy{
-        ViewModelProvider(this).get(CardListViewModel::class.java)
+    private val deckListViewModel by lazy{
+        ViewModelProvider(this).get(DeckListViewModel::class.java)
     }
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -35,44 +37,40 @@ class CardListFragment : Fragment(){
         )
     }
 
+    @SuppressLint("NotifyDataSetChanged")
     override fun onCreateView(
         inflater: LayoutInflater,
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View {
-        val binding = DataBindingUtil.inflate<FragmentCardListBinding>(
+        val binding = DataBindingUtil.inflate<FragmentDeckListBinding>(
             inflater,
-            R.layout.fragment_card_list,
+            R.layout.fragment_deck_list,
             container,
             false)
 
-        adapter = CardAdapter()
+        adapter = DeckAdapter()
         adapter.data = emptyList()
-
-        SettingsActivity.setLoggedIn(requireContext(), true)
-
-        // TODO("add a card -> Cancel creates an empty card")
-        binding.cardListRecyclerView.adapter = adapter
-        binding.newCardFab.setOnClickListener {
-            val card = Card("", "")
-            executor.execute{
-                CardDatabase.getInstance(it.context).cardDao.addCard(card)
+        binding.apply {
+            deckListRecyclerView.adapter = adapter
+            newDeckFab.setOnClickListener {
+                it.findNavController()
+                    .navigate(DeckListFragmentDirections.actionDeckListFragmentToDeckEditFragment(null))
             }
-            it.findNavController()
-                .navigate(CardListFragmentDirections.actionCardListFragmentToCardEditFragment(card.id))
         }
-
-        cardListViewModel.cards.observe(viewLifecycleOwner) {
+        deckListViewModel.deckNumber.observe(viewLifecycleOwner) {
+            binding.deckNumber = it
+        }
+        deckListViewModel.decksWithCards.observe(viewLifecycleOwner) {
             adapter.data = it
             adapter.notifyDataSetChanged()
         }
-
         return binding.root
     }
 
     override fun onCreateOptionsMenu(menu: Menu, inflater: MenuInflater) {
         super.onCreateOptionsMenu(menu, inflater)
-        inflater.inflate(R.menu.fragment_card_list, menu)
+        inflater.inflate(R.menu.fragment_menu, menu)
     }
 
     override fun onOptionsItemSelected(item: MenuItem): Boolean {

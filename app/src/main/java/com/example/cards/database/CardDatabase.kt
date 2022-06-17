@@ -4,10 +4,10 @@ import android.content.Context
 import androidx.room.Database
 import androidx.room.Room
 import androidx.room.RoomDatabase
-import com.example.cards.Card
-import com.example.cards.Deck
+import com.example.cards.card.Card
+import com.example.cards.decks.Deck
 
-@Database(entities = [Card::class, Deck::class], version = 2, exportSchema = false)
+@Database(entities = [Card::class, Deck::class], version = 3, exportSchema = false)
 abstract class CardDatabase : RoomDatabase() {
     abstract val cardDao: CardDao
 

@@ -13,32 +13,41 @@
         android:label="TitleFragment"
         tools:layout="@layout/fragment_title">
         <action
-            android:id="@+id/action_titleFragment_to_cardListFragment"
-            app:destination="@id/cardListFragment" />
+            android:id="@+id/action_titleFragment_to_deckListFragment"
+            app:destination="@id/deckListFragment" />
     </fragment>
 
     <fragment
         android:id="@+id/studyFragment"
         android:name="com.example.cards.StudyFragment"
         android:label="StudyFragment"
-        tools:layout="@layout/fragment_study"/>
+        tools:layout="@layout/fragment_study">
+        <action
+            android:id="@+id/action_studyFragment_to_deckListFragment"
+            app:destination="@id/deckListFragment"
+            app:popUpTo="@id/deckListFragment"
+            app:popUpToInclusive="true" />
+        <argument
+            android:name="deckId"
+            app:argType="string" />
+    </fragment>
 
     <fragment
         android:id="@+id/cardListFragment"
-        android:name="com.example.cards.CardListFragment"
+        android:name="com.example.cards.card.CardListFragment"
         android:label="CardListFragment"
         tools:layout="@layout/fragment_card_list">
         <action
-            android:id="@+id/action_cardListFragment_to_studyFragment"
-            app:destination="@id/studyFragment" />
-        <action
             android:id="@+id/action_cardListFragment_to_cardEditFragment"
             app:destination="@id/cardEditFragment" />
+        <argument
+            android:name="deckId"
+            app:argType="string" />
     </fragment>
 
     <fragment
         android:id="@+id/cardEditFragment"
-        android:name="com.example.cards.CardEditFragment"
+        android:name="com.example.cards.card.CardEditFragment"
         android:label="fragment_card_edit"
         tools:layout="@layout/fragment_card_edit" >
         <action
@@ -48,6 +57,10 @@
             app:popUpToInclusive="true" />
         <argument
             android:name="cardId"
+            app:argType="string"
+            app:nullable="true" />
+        <argument
+            android:name="deckId"
             app:argType="string" />
     </fragment>
     <fragment
@@ -55,6 +68,36 @@
         android:name="com.example.cards.AboutFragment"
         android:label="fragment_about"
         tools:layout="@layout/fragment_about" />
+    <fragment
+        android:id="@+id/deckListFragment"
+        android:name="com.example.cards.decks.DeckListFragment"
+        android:label="DeckListFragment"
+        tools:layout="@layout/fragment_deck_list">
+        <action
+            android:id="@+id/action_deckListFragment_to_cardListFragment"
+            app:destination="@id/cardListFragment" />
+        <action
+            android:id="@+id/action_deckListFragment_to_studyFragment"
+            app:destination="@id/studyFragment" />
+        <action
+            android:id="@+id/action_deckListFragment_to_deckEditFragment"
+            app:destination="@id/deckEditFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/deckEditFragment"
+        android:name="com.example.cards.decks.DeckEditFragment"
+        android:label="DeckEditFragment"
+        tools:layout="@layout/fragment_deck_edit">
+        <action
+            android:id="@+id/action_deckEditFragment_to_deckListFragment"
+            app:destination="@id/deckListFragment"
+            app:popUpTo="@id/deckListFragment"
+            app:popUpToInclusive="true" />
+        <argument
+            android:name="deckId"
+            app:argType="string"
+            app:nullable="true" />
+    </fragment>
 
 
 </navigation>

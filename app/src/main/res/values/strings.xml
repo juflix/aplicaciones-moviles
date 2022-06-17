@@ -1,6 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
+    <!-- General -->
     <string name="app_name">Cards</string>
+
+    <!-- Card  -->
     <string name="answer_button_text">Check answer</string>
     <string name="question_text">Tree</string>
     <string name="answer_text">Árbol</string>
@@ -22,11 +25,13 @@
     <string name="question">Question</string>
     <string name="answer">Answer</string>
 
-    <string name="new_card_fab_description">New Card</string>
-    <string name="added_card">Card Added</string>
+    <string name="new_card_fab_description">Add new card</string>
+    <string name="added_card">Card added</string>
 
     <string name="card_question_hint">Write the question text</string>
     <string name="card_answer_hint">Write the answer text</string>
+
+    <!-- Menu -->
     <string name="decks_nav_menu_title">Decks</string>
     <string name="study_nav_menu_title">Review cards</string>
     <string name="statistics_nav_menu_title">Statistics</string>
@@ -35,15 +40,28 @@
     <string name="logout_menu_title">Logout</string>
     <string name="title_activity_settings">SettingsActivity</string>
 
-    <!-- Preference Titles -->
+    <!-- Preference -->
     <string name="decks_header">Decks</string>
-
-    <!-- Maximum number of cards Preferences -->
     <string name="max_number_cards">Maximum number of cards</string>
-
-    <!-- Board Preferences -->
     <string name="board_title">Show board</string>
     <string name="board_summary_on">Board available</string>
     <string name="board_summary_off">Board unavailable</string>
+
+    <!-- Deck -->
+    <string name="new_deck_fab_description">Add new deck</string>
+    <string name="deck_card_number">Total number of cards: </string>
+    <string name="deck_review_card_number">Number of reviewed cards: </string>
+    <string name="deck_edit_button">Edit deck</string>
+    <string name="deck_delete_button">Delete deck</string>
+    <string name="deck_review_button">Review cards</string>
+    <string name="deck_card_button">View cards</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="deck_edit_name">Name of the deck</string>
+    <string name="deck_name_hint">Write the name of the deck</string>
+    <string name="accept_deck_edit_button_title">Accept</string>
+    <string name="cancel_deck_edit_button_title">Cancel</string>
+    <string name="empty_field">The field cannot be empty</string>
+
 
 </resources>

@@ -2,6 +2,7 @@ package com.example.cards
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.widget.Toast
 import androidx.databinding.DataBindingUtil
 import androidx.navigation.fragment.NavHostFragment
 import androidx.navigation.ui.setupWithNavController
@@ -19,7 +20,7 @@ class TitleActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         binding = DataBindingUtil.setContentView(this, R.layout.activity_title)
 
-        val database: FirebaseDatabase = FirebaseDatabase.getInstance()
+        val database: FirebaseDatabase = FirebaseDatabase.getInstance("https://juliettefelixcards-23d09-default-rtdb.europe-west1.firebasedatabase.app")
         val reference = database.getReference("message")
         reference.setValue("Hello from Cards")
 

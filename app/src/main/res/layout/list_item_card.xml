@@ -1,10 +1,11 @@
 <layout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto">
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
 
     <data>
         <variable
             name="card"
-            type="com.example.cards.Card" />
+            type="com.example.cards.card.Card" />
     </data>
 
     <com.google.android.material.card.MaterialCardView
@@ -34,7 +35,8 @@
                 android:textColor="@color/purple_500"
                 android:textSize="16sp"
                 android:textStyle="bold"
-                android:textAppearance="?attr/textAppearanceHeadline6" />
+                android:textAppearance="?attr/textAppearanceHeadline6"
+                tools:text="Question"/>
 
             <TextView
                 android:id="@+id/list_item_answer"
@@ -44,16 +46,18 @@
                 android:text="@{card.answer}"
                 android:textColor="@color/purple_500"
                 android:textSize="16sp"
-                android:textAppearance="?attr/textAppearanceBody2"/>
+                android:textAppearance="?attr/textAppearanceBody2"
+                tools:text="Answer"/>
 
             <TextView
                 android:id="@+id/list_item_date"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_alignParentBottom="true"
                 android:layout_alignParentEnd="true"
+                android:layout_below="@id/list_item_question"
                 android:text="@{card.creationDate.substring(0, 10)}"
-                android:textAppearance="?attr/textAppearanceBody2" />
+                android:textAppearance="?attr/textAppearanceBody2"
+                tools:text="24/10/2000"/>
 
         </RelativeLayout>
     </com.google.android.material.card.MaterialCardView>

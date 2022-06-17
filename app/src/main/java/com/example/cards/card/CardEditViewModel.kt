@@ -1,5 +1,6 @@
-package com.example.cards
+package com.example.cards.card
 
+import android.annotation.SuppressLint
 import android.app.Application
 import androidx.lifecycle.AndroidViewModel
 import androidx.lifecycle.LiveData
@@ -8,6 +9,7 @@ import androidx.lifecycle.Transformations
 import com.example.cards.database.CardDatabase
 
 class CardEditViewModel(application: Application): AndroidViewModel(application) {
+    @SuppressLint("StaticFieldLeak")
     private val context = getApplication<Application>().applicationContext
     private val cardId = MutableLiveData<String>()
 

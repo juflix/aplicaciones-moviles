@@ -1,4 +1,4 @@
-package com.example.cards
+package com.example.cards.card
 
 import android.os.Bundle
 import android.text.Editable
@@ -8,9 +8,9 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.databinding.DataBindingUtil
 import androidx.fragment.app.Fragment
-import androidx.fragment.app.viewModels
 import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.findNavController
+import com.example.cards.R
 import com.example.cards.database.CardDatabase
 import com.example.cards.databinding.FragmentCardEditBinding
 import java.util.concurrent.Executors
@@ -40,14 +40,15 @@ class CardEditFragment : Fragment() {
         )
 
         val args = CardEditFragmentArgs.fromBundle(requireArguments())
-        viewModel.loadCardId(args.cardId)
-        viewModel.card.observe(viewLifecycleOwner) {
-            card = it
-            binding.card = card
-            question = card.question
-            answer = card.answer
+        args.cardId?.let { s ->
+            viewModel.loadCardId(s)
+            viewModel.card.observe(viewLifecycleOwner) {
+                card = it
+                binding.card = card
+                question = card.question
+                answer = card.answer
+            }
         }
-
         return binding.root
     }
 

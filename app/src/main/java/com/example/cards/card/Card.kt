@@ -1,9 +1,10 @@
-package com.example.cards
+package com.example.cards.card
 
 import android.view.View
 import androidx.room.ColumnInfo
 import androidx.room.Entity
 import androidx.room.PrimaryKey
+import com.example.cards.R
 import java.lang.Double.max
 import java.time.LocalDateTime
 import java.time.format.DateTimeFormatter
@@ -14,22 +15,27 @@ open class Card(
     @ColumnInfo(name = "card_question")
     var question: String,
     var answer: String,
-    var quality: Int = -1,
-
-    var repetitions: Int = 0,
-    var interval: Long = 1L,
-    var easiness: Double = 2.5,
-
     var creationDate: String = LocalDateTime.now().toString(),
-    var nextPracticeDate: String = LocalDateTime.now().toString(),
-
-    var answered: Boolean = false,
-
-    var deckId: Long = 0,
 
     @PrimaryKey
-    var id: String = UUID.randomUUID().toString()
+    var id: String = UUID.randomUUID().toString(),
+    var deckId: String = ""
 ) {
+    var quality: Int = -1
+    var repetitions: Int = 0
+    var interval: Long = 1L
+    var easiness: Double = 2.5
+    var nextPracticeDate: String = LocalDateTime.now().toString()
+    var answered: Boolean = false
+
+    constructor() : this(
+        "question",
+        "answer",
+        LocalDateTime.now().toString(),
+        UUID.randomUUID().toString(),
+        ""
+    )
+
     override fun toString(): String = run {
         return ("card | $question | $answer | $creationDate | $easiness | $interval | $repetitions | $nextPracticeDate")
     }

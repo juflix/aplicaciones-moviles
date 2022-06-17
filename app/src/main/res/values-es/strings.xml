@@ -46,5 +46,17 @@
     <string name="board_title">Mostrar tablero</string>
     <string name="board_summary_on">Tablero disponible</string>
     <string name="board_summary_off">Tablero indisponible</string>
+    <string name="new_deck_fab_description">Añadir mazo</string>
+    <string name="deck_card_number">Número total de tarjetas</string>
+    <string name="deck_review_card_number">Número de tarjetas repasadas</string>
+    <string name="deck_edit_button">Edit deck</string>
+    <string name="deck_delete_button">Delete deck</string>
+    <string name="deck_review_button">Review cards</string>
+    <string name="deck_card_button">View cards</string>
+    <string name="deck_edit_name">Name of the deck</string>
+    <string name="deck_name_hint">Write the name of the deck</string>
+    <string name="accept_deck_edit_button_title">Accept</string>
+    <string name="cancel_deck_edit_button_title">Cancel</string>
+    <string name="empty_field">The field cannot be empty</string>
 
 </resources>

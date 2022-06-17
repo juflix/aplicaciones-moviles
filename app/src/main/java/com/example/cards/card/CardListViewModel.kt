@@ -1,4 +1,4 @@
-package com.example.cards
+package com.example.cards.card
 
 import android.app.Application
 import androidx.lifecycle.AndroidViewModel
